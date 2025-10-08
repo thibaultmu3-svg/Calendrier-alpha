@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     /* ou 'Playfair Display' */
+    color: #D5B97A;
+}
+/* encore adapter un petit peu le calendrier */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(75deg, #0A0A0A, #0A0A0A, #1A1A1A); /* a déterminer */
+    font-family: 'Inter', sans-serif;
+}
+
+
+.container {/* ici jje vais pouvoir disposer mes autres éléments, display flex*/
+    display: flex;
+}
+
+.wrapper {
+    background: linear-gradient(#171411,#0E0E0A);
+    width: 500px;/* a déterminer */
+    border-radius: 1rem;/* a déterminer */
+    box-shadow: -1px -1px 5px #2e261a;
+    user-select: none;/* empeche de selectionner du texte */
+}
+
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;/* a déterminer */
+    justify-content: space-between;
+}
+
+
+header .current-date {
+    font-size: 1.65rem;/* a déterminer */
+    font-weight: 600;/* a déterminer */
+    font-family: 'Cinzel', serif;
+    color: #D5B97A;
+    cursor: default;
+}
+
+
+header .icons span {
+    display: inline-block;/* permet de modifier la taille car les spans ne veulent pas etre modifiés*/
+    margin: 0 px;
+    text-align: center;
+    height: 38px;
+    width: 38px;
+    line-height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #D5B97A;
+    font-size: 1.1rem;
+    transform: translateX(-5px);
+    transition: 03s ease translate;
+}
+
+ 
+header .icons span:last-child {
+    margin-right: -10px;
+}
+
+
+header .icons span:hover {
+    color: #997D54;
+    transform: translateY(-1px) translateX(-5px);
+}
+
+
+header .icons span:active {
+    transform: translateX(-5px);
+}
+
+
+.chiffres {
+    padding: 20px;
+    color: #997D54;
+    font-weight: 300;
+}
+
+
+.chiffres ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.chiffres .days {
+    margin-bottom: 20px;
+}
+
+
+.chiffres .weeks li {
+    font-weight: 500;
+}
+
+
+.chiffres .days li {
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+
+.chiffres .days li.inactive, .chiffres {
+    cursor: default;
+}
+
+
+.chiffres ul li {
+    position: relative;/* pas nécessaire pour le disign que je veux*/
+    width: calc(100%/7);
+    z-index: 1;
+}
+
+
+.chiffres ul li::before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width:40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+
+.chiffres ul li:hover::before {
+    background-color: rgba(37, 37, 36, 0.404);
+    box-shadow: 0 0 10px #3638336b;
+}
+
+
+.chiffres ul.days li.inactive:hover::before,
+.chiffres ul.weeks li:hover::before {
+    background-color: rgba(0,0,0,0);
+}
+
+
+.days li.inactive {
+    color: #997d5480;
+}
+
+
+.days li.active::before {
+    border: 1px solid #584832;
+    box-shadow: 1px 1px 10px #3638336b;
+}
+
+
+.days li.active:hover::before  {
+    box-shadow: 1px 1px 15px #3638336b;
+}
+
+
+.color-legend {
+    height: 100px;/* a déterminer */
+}
+
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:  2px 7px;
+    border: solid 1px #2e261a;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 3px #2E2E2E, 1px 1px 3px #0C0D0A;
+}
